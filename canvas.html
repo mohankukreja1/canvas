@@ -8,8 +8,9 @@
 <body>
 
 <canvas id="canvas" height="100px" width="200px" style="border: 1px solid black; margin: 15px;"></canvas>
-
-
+<canvas id="circle" height="100px" width="200px" style="border: 1px solid black; margin: 15px;"></canvas>
+<canvas id="grad" height="100px" width="200px" style="border: 1px solid black; margin: 15px;"></canvas>
+<canvas id="text" height="100px" width="200px" style="border: 1px solid black; margin: 15px;"></canvas>
 <script>
     console.log('hello')
     var can=document.getElementById('canvas');
@@ -18,6 +19,35 @@
     ctx.moveTo(0,0);
     ctx.lineTo(200,100);
     ctx.stroke();
+
+
+    var can2=document.getElementById('circle');
+    var ctx2=can2.getContext('2d');
+    ctx2.beginPath();
+    ctx2.arc(95,60,40,0,2*Math.PI)
+    ctx2.stroke()
+
+
+    var can3=document.getElementById('grad');
+    var ctx3=can3.getContext('2d');
+
+    var grad=ctx3.createLinearGradient(0,0,200,0);
+    grad.addColorStop(0,'red');
+    grad.addColorStop(1,'blue');
+
+    ctx3.fillStyle=grad;
+    ctx3.fillRect(10,10,150,80);
+
+
+    var can4=document.getElementById('text');
+    var ctx4=can4.getContext('2d');
+    ctx4.font='15px Arial';
+    ctx4.fillStyle='red';
+    ctx4.textAlign='center';
+    ctx4.fillText('Hello World', 100, 50);
+
+
+
 </script>
 
 </body>
